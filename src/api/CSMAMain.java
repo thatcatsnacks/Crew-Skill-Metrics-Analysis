@@ -18,21 +18,30 @@ public class CSMAMain {
 			csl = new LinkedList<CrewSkill>();
 		}
 		
-		public void consoleIn(String in){
-			in = in.toLowerCase();
-			char op = in.charAt(0);
-			
-			if(op == 'g' || op == 'c'){
-				CrewSkill cs = p.parse(in);
-				if(cs!=null){
-					csl.add(cs);
+		public void newGatherInProgress(String cmd){
+			CrewSkill cs = p.parseGather(cmd);
+			csl.add(cs);
+		}
+		
+		public boolean finishGatherInProgress(String cmd){
+			CrewSkill cs = p.parseGather(cmd);
+			for(int i=0;i<csl.size();i++){
+				if(crewSkillsAreEqual(cs, csl.get(i))){
+					csl.remove(i);
+					return true;
 				}
-			}else if(op == 'l'){
-				//printlist
-				printCrewSkillList();
-			}else if(op == 'f'){
-				//finishmission
 			}
+			return false;
+		}
+		
+		private boolean crewSkillsAreEqual(CrewSkill c1, CrewSkill c2){
+			if(c1.getCrewSkill()==c2.getCrewSkill() &&
+					c1.getYield()==c2.getYield() && c1.getCost()==c2.getCost())
+				// if the crew skills are equal
+				return true;
+			// if not equal
+			return false;
+				
 		}
 		
 		public void printCrewSkillList(){

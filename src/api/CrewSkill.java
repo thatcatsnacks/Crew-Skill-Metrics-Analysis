@@ -1,7 +1,7 @@
 package api;
 
 /**
- * Represents one intance of a crew skill in progress
+ * Represents one instance of a crew skill in progress
  * @author Cat Snacks
  *
  */

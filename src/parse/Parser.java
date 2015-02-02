@@ -17,9 +17,15 @@ public class Parser {
 	private final String BOUNTIFUL = "Bountiful";
 	private final String RICH = "Rich";
 	private final String NOT_FOUND = "Not Found";
-	public CrewSkill parse(String in){
+	
+	
+	/**
+	 * Parses a gather command
+	 * @param in gather command
+	 * @return
+	 */
+	public CrewSkill parseGather(String in){
 		char operation = in.charAt(0);
-		
 		// if command specifies gather mission
 		if(operation=='g'){
 			char crewskill = in.charAt(1);
