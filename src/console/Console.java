@@ -23,7 +23,7 @@ public class Console {
 			if(in.toLowerCase().equals(START)){
 				start(s.next());
 			}else if(in.toLowerCase().equals(FINISH)){
-				finish(s.next(), s.nextInt());
+				finish(s.next(), s.next());
 			}else if(in.toLowerCase().equals(LIST)){
 				list();
 			}
